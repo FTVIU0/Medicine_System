@@ -1,0 +1,23 @@
+﻿<Window x:Class="Medicine_System.Salesperson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Medicine_System"
+        mc:Ignorable="d"
+        Title="医药信息管理系统-销售" Height="327.273" Width="570.629" WindowStartupLocation="CenterScreen">
+    <StackPanel x:Name="stackPanel">
+        <!--Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}"TabControl的高度和StackPanel的高度绑定-->
+        <TabControl x:Name="tConSale" Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}" >
+            <TabItem Header="顾客信息录入">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="查询">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="报表导出" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="59">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>
