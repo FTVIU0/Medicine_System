@@ -5,18 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Medicine_System"
         mc:Ignorable="d"
-        Title="医药信息管理系统-销售" Height="327.273" Width="570.629" WindowStartupLocation="CenterScreen">
+        Title="医药信息管理系统-销售" Height="327.273" Width="570.629" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <StackPanel x:Name="stackPanel">
-        <!--Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}"TabControl的高度和StackPanel的高度绑定-->
-        <TabControl x:Name="tConSale" Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}" >
-            <TabItem Header="顾客信息录入">
-                <Grid Background="#FFE5E5E5"/>
+        <!--TabControl的高度和StackPanel的高度绑定 Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}"-->
+        <TabControl x:Name="tConSale" Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}" Background="White" >
+            <TabItem Header="顾客信息录入" FontSize="16" FontFamily="Microsoft YaHei UI Light" Margin="-2,-2,-2,0" HorizontalAlignment="Center">
+                <Grid>
+                    <Separator Height="12" Margin="0,5,0,0" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
-            <TabItem Header="查询">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="报表导出" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="59">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="查 询" FontSize="16" FontFamily="Microsoft YaHei UI Light" Margin="-2,-2,-2,0" HorizontalAlignment="Center">
+                <StackPanel/>
             </TabItem>
         </TabControl>
     </StackPanel>
