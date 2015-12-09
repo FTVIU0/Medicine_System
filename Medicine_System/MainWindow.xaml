@@ -18,14 +18,13 @@
         <PasswordBox x:Name="ptxtUserPassWord" HorizontalAlignment="Left" Margin="159,210,0,0" VerticalAlignment="Top" Width="216" Height="30" FontSize="24" MaxLength="11" Background="#000000FF" BorderBrush="#FF0A55A0"/>
         <Label x:Name="labUserName" Content="用户名" HorizontalAlignment="Left" Margin="74,151,0,0" VerticalAlignment="Top" Height="30" FontSize="18.667" RenderTransformOrigin="-0.334,0.172" FontFamily="Microsoft YaHei UI Light" FontWeight="Bold"/>
         <Label x:Name="labPassWord" Content="密   码" HorizontalAlignment="Left" Margin="74,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.489,-0.001" Height="30" FontSize="18.667" FontFamily="Microsoft YaHei UI Light"/>
-        <ComboBox x:Name="comboBox" Margin="417,151,0,0" VerticalAlignment="Top" Height="30" SelectedIndex="0" FontSize="18.667" FontFamily="Microsoft YaHei UI Light" HorizontalAlignment="Left" Width="124" BorderBrush="#FF0A55A0">
+        <ComboBox x:Name="comboBox" Margin="417,151,0,0" VerticalAlignment="Top" Height="30" FontSize="18.667" FontFamily="Microsoft YaHei UI Light" HorizontalAlignment="Left" Width="124" BorderBrush="#FF0A55A0">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#000000FF" Offset="0"/>
                     <GradientStop Color="#000000FF" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <ComboBoxItem Content="请选择角色" HorizontalAlignment="Left" Width="129" Background="#000000FF"/>
             <ComboBoxItem Content="销售员" HorizontalAlignment="Left" Width="129" Background="#000000FF"/>
             <ComboBoxItem Content="采购员" HorizontalAlignment="Left" Width="129" Background="#000000FF"/>
             <ComboBoxItem Content="管理员" HorizontalAlignment="Left" Width="129" Background="#000000FF"/>
