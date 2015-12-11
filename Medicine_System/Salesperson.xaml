@@ -5,18 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Medicine_System"
         mc:Ignorable="d"
-        Title="医药信息管理系统-销售" Height="327.273" Width="570.629" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <StackPanel x:Name="stackPanel">
-        <!--TabControl的高度和StackPanel的高度绑定 Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}"-->
-        <TabControl x:Name="tConSale" Height="{Binding ActualHeight, ElementName=stackPanel, Mode=OneWay}" Background="White" >
-            <TabItem Header="顾客信息录入" FontSize="16" FontFamily="Microsoft YaHei UI Light" Margin="-2,-2,-2,0" HorizontalAlignment="Center">
-                <Grid>
-                    <Separator Height="12" Margin="0,5,0,0" VerticalAlignment="Top"/>
+        Title="医药信息管理系统-销售" Height="557.273" Width="895.129" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl x:Name="tabControl" Margin="10">
+            <TabItem x:Name="tabClient" Header="顾客信息">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="lbName" Content="姓名" HorizontalAlignment="Left" Margin="54,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,-1.62"/>
+                    <TextBox x:Name="tbCName" HorizontalAlignment="Left" Height="23" Margin="117,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Border x:Name="borCSex" Margin="334,60,423,405">
+                        <Grid>
+                            <RadioButton x:Name="rbMan" Content="男" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <RadioButton x:Name="rbWomen" Content="女" HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Border>
+                    <Label x:Name="lbAge" Content="年龄" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top"/>
+                    <Border Margin="117,106,479,344">
+                        <Grid>
+                            <ComboBox x:Name="cbYear" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90">
+                                <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="118"/>
+                            </ComboBox>
+                            <ComboBox x:Name="cbMonth" HorizontalAlignment="Left" Margin="148,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <Label x:Name="lbYear" Content="年" HorizontalAlignment="Left" Margin="90,4,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbMonth" Content="月" HorizontalAlignment="Left" Margin="243,0,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Border>
+                    <Label x:Name="lbAddress" Content="住址" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
+                    <Border Margin="117,156,347,294">
+                        <Grid>
+                            <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="142,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ComboBox x:Name="cbCounty" HorizontalAlignment="Left" Margin="280,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <Label x:Name="lbProvince" Content="省" HorizontalAlignment="Left" Margin="95,0,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbCity" Content="市" HorizontalAlignment="Left" Margin="235,4,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbCounty" Content="县" HorizontalAlignment="Left" Margin="375,4,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                    </Border>
+                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+                    <Label x:Name="lbPhoneNum" Content="联系方式" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbPhoneNum" HorizontalAlignment="Left" Height="22" Margin="117,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <GroupBox x:Name="gbSymptom" Header="症状" HorizontalAlignment="Left" Margin="117,289,0,0" VerticalAlignment="Top" Height="119" Width="274">
+                        <TextBox x:Name="tbSymptom" Margin="4" TextWrapping="Wrap"/>
+                    </GroupBox>
+                    <GroupBox x:Name="gbRemark" Header="备注" HorizontalAlignment="Left" Margin="417,298,0,0" VerticalAlignment="Top" Height="110" Width="301">
+                        <TextBox x:Name="tbRemark" Margin="10,3,-2,4" TextWrapping="Wrap"/>
+                    </GroupBox>
+                    <Border Margin="351,439,181,21">
+                        <Grid>
+                            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="btnRevise" Content="修改" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="btnCancel" Content="撤销" HorizontalAlignment="Left" Margin="254,0,0,0" VerticalAlignment="Top" Width="75"/>
+                        </Grid>
+                    </Border>
                 </Grid>
             </TabItem>
-            <TabItem Header="查 询" FontSize="16" FontFamily="Microsoft YaHei UI Light" Margin="-2,-2,-2,0" HorizontalAlignment="Center">
-                <StackPanel/>
+            <TabItem x:Name="tabMedi" Header="医药信息">
+                <Grid Background="#FFE5E5E5" Margin="0,8,0,-7"/>
             </TabItem>
         </TabControl>
-    </StackPanel>
+
+    </Grid>
 </Window>
