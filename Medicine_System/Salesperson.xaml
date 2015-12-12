@@ -10,16 +10,16 @@
         <TabControl x:Name="tabControl" Margin="10">
             <TabItem x:Name="tabClient" Header="顾客信息录入">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="lbName" Content="姓名" HorizontalAlignment="Left" Margin="54,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,-1.62"/>
+                    <Label x:Name="lbClientName" Content="姓名" HorizontalAlignment="Left" Margin="54,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,-1.62"/>
                     <TextBox x:Name="tbCName" HorizontalAlignment="Left" Height="23" Margin="117,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Border x:Name="borCSex" Margin="365,60,425,0" Height="19" VerticalAlignment="Top">
+                    <Border x:Name="borClientSex" Margin="365,60,425,0" Height="19" VerticalAlignment="Top">
                         <Grid>
                             <RadioButton x:Name="rbMan" Content="男" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <RadioButton x:Name="rbWomen" Content="女" HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <Label x:Name="lbAge" Content="年龄" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top"/>
-                    <Border Margin="117,106,479,344">
+                    <Label x:Name="lbClientAge" Content="年龄" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top"/>
+                    <Border Margin="117,106,479,410">
                         <Grid>
                             <ComboBox x:Name="cbYear" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90">
                                 <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="118"/>
@@ -29,8 +29,8 @@
                             <Label x:Name="lbMonth" Content="月" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <Label x:Name="lbAddress" Content="住址" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
-                    <Border Margin="117,156,347,294">
+                    <Label x:Name="lbClientAddress" Content="住址" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
+                    <Border Margin="117,156,347,360">
                         <Grid>
                             <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90"/>
                             <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90"/>
@@ -41,7 +41,7 @@
                         </Grid>
                     </Border>
                     <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="lbPhoneNum" Content="联系方式" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbClientPhoneNum" Content="联系方式" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbPhoneNum" HorizontalAlignment="Left" Height="22" Margin="117,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                     <Border Margin="365,513,166,0" Height="22" VerticalAlignment="Top">
                         <Grid>
@@ -52,9 +52,9 @@
                     </Border>
                     <Label x:Name="lbMediNum" Content="药品编号" HorizontalAlignment="Left" Margin="54,328,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbMediNum" HorizontalAlignment="Left" Height="23" Margin="117,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="lbSymptom" Content="症状" HorizontalAlignment="Left" Margin="54,385,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbClientSymptom" Content="症状" HorizontalAlignment="Left" Margin="54,385,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbSymptom" HorizontalAlignment="Left" Height="23" Margin="117,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="lbRemark" Content="备注" HorizontalAlignment="Left" Margin="54,430,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="lbClientRemark" Content="备注" HorizontalAlignment="Left" Margin="54,430,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbRemark" HorizontalAlignment="Left" Height="23" Margin="117,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                 </Grid>
             </TabItem>
