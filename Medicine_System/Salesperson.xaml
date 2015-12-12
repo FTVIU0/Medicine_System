@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Medicine_System"
         mc:Ignorable="d"
-        Title="医药信息管理系统-销售" Height="557.273" Width="895.129" WindowStartupLocation="CenterScreen">
-    <Grid>
+        Title="医药信息管理系统-销售" Height="629.273" Width="939.129" WindowStartupLocation="CenterScreen">
+    <Grid Height="592" VerticalAlignment="Top" Margin="0,0,2,0">
         <TabControl x:Name="tabControl" Margin="10">
-            <TabItem x:Name="tabClient" Header="顾客信息">
+            <TabItem x:Name="tabClient" Header="顾客信息录入">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="lbName" Content="姓名" HorizontalAlignment="Left" Margin="54,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,-1.62"/>
-                    <TextBox x:Name="tbCName" HorizontalAlignment="Left" Height="23" Margin="117,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
-                    <Border x:Name="borCSex" Margin="334,60,423,405">
+                    <TextBox x:Name="tbCName" HorizontalAlignment="Left" Height="23" Margin="117,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Border x:Name="borCSex" Margin="365,60,425,0" Height="19" VerticalAlignment="Top">
                         <Grid>
                             <RadioButton x:Name="rbMan" Content="男" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <RadioButton x:Name="rbWomen" Content="女" HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top"/>
@@ -24,41 +24,41 @@
                             <ComboBox x:Name="cbYear" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90">
                                 <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="118"/>
                             </ComboBox>
-                            <ComboBox x:Name="cbMonth" HorizontalAlignment="Left" Margin="148,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ComboBox x:Name="cbMonth" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90"/>
                             <Label x:Name="lbYear" Content="年" HorizontalAlignment="Left" Margin="90,4,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="lbMonth" Content="月" HorizontalAlignment="Left" Margin="243,0,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbMonth" Content="月" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
                     <Label x:Name="lbAddress" Content="住址" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
                     <Border Margin="117,156,347,294">
                         <Grid>
                             <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90"/>
-                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="142,4,0,0" VerticalAlignment="Top" Width="90"/>
-                            <ComboBox x:Name="cbCounty" HorizontalAlignment="Left" Margin="280,4,0,0" VerticalAlignment="Top" Width="90"/>
-                            <Label x:Name="lbProvince" Content="省" HorizontalAlignment="Left" Margin="95,0,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="lbCity" Content="市" HorizontalAlignment="Left" Margin="235,4,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="lbCounty" Content="县" HorizontalAlignment="Left" Margin="375,4,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ComboBox x:Name="cbCounty" HorizontalAlignment="Left" Margin="239,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <Label x:Name="lbProvince" Content="省" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbCity" Content="市" HorizontalAlignment="Left" Margin="212,4,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbCounty" Content="县" HorizontalAlignment="Left" Margin="334,4,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="397"/>
+                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                     <Label x:Name="lbPhoneNum" Content="联系方式" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbPhoneNum" HorizontalAlignment="Left" Height="22" Margin="117,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <GroupBox x:Name="gbSymptom" Header="症状" HorizontalAlignment="Left" Margin="117,289,0,0" VerticalAlignment="Top" Height="119" Width="274">
-                        <TextBox x:Name="tbSymptom" Margin="4" TextWrapping="Wrap"/>
-                    </GroupBox>
-                    <GroupBox x:Name="gbRemark" Header="备注" HorizontalAlignment="Left" Margin="417,298,0,0" VerticalAlignment="Top" Height="110" Width="301">
-                        <TextBox x:Name="tbRemark" Margin="10,3,-2,4" TextWrapping="Wrap"/>
-                    </GroupBox>
-                    <Border Margin="351,439,181,21">
+                    <Border Margin="365,513,166,0" Height="22" VerticalAlignment="Top">
                         <Grid>
                             <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
                             <Button x:Name="btnRevise" Content="修改" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="75"/>
                             <Button x:Name="btnCancel" Content="撤销" HorizontalAlignment="Left" Margin="254,0,0,0" VerticalAlignment="Top" Width="75"/>
                         </Grid>
                     </Border>
+                    <Label x:Name="lbMedi" Content="药品编号" HorizontalAlignment="Left" Margin="54,328,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="117,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="label" Content="症状" HorizontalAlignment="Left" Margin="54,385,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="117,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="label1" Content="备注" HorizontalAlignment="Left" Margin="54,430,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="117,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabMedi" Header="医药信息">
+            <TabItem x:Name="tabMedi" Header="查询">
                 <Grid Background="#FFE5E5E5" Margin="0,8,0,-7"/>
             </TabItem>
         </TabControl>
