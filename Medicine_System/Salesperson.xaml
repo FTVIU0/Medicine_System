@@ -50,16 +50,37 @@
                             <Button x:Name="btnCancel" Content="撤销" HorizontalAlignment="Left" Margin="254,0,0,0" VerticalAlignment="Top" Width="75"/>
                         </Grid>
                     </Border>
-                    <Label x:Name="lbMedi" Content="药品编号" HorizontalAlignment="Left" Margin="54,328,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="117,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="label" Content="症状" HorizontalAlignment="Left" Margin="54,385,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="117,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="label1" Content="备注" HorizontalAlignment="Left" Margin="54,430,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="117,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbMediNum" Content="药品编号" HorizontalAlignment="Left" Margin="54,328,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbMediNum" HorizontalAlignment="Left" Height="23" Margin="117,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbSymptom" Content="症状" HorizontalAlignment="Left" Margin="54,385,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbSymptom" HorizontalAlignment="Left" Height="23" Margin="117,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbRemark" Content="备注" HorizontalAlignment="Left" Margin="54,430,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbRemark" HorizontalAlignment="Left" Height="23" Margin="117,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMedi" Header="查询">
-                <Grid Background="#FFE5E5E5" Margin="0,8,0,-7"/>
+                <Grid Background="#FFE5E5E5" Margin="0,8,0,-7">
+                    <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="524" Margin="10,10,0,0" VerticalAlignment="Top" Width="883">
+                        <TabItem Header="药品信息查询">
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="lbMediNum1" Content="药品编号" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbMediNum1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                                <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
+                                <GroupBox x:Name="gbMResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857"/>
+                                <Button x:Name="btnMExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="顾客信息查询">
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="lbCName" Content="顾客姓名" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbCName1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                                <Button x:Name="btnCInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
+                                <GroupBox x:Name="gbCResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857"/>
+                                <Button x:Name="btnCExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
             </TabItem>
         </TabControl>
 
