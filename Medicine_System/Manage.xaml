@@ -69,7 +69,37 @@
                 </Grid>
             </TabItem>
             <TabItem Header="查询">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5" Margin="0,-6,0,6">
+                    <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="551" Margin="10,10,0,0" VerticalAlignment="Top" Width="905">
+                        <TabItem Header="员工信息查询">
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="lbStaffName1" Content="员工姓名" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbStaffName1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                                <Button x:Name="btnStaffInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
+                                <GroupBox x:Name="gbStaffResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857"/>
+                                <Button x:Name="btnStaffExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="药品信息查询">
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="lbMediNum1" Content="药品编号" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbMediNum1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                                <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
+                                <GroupBox x:Name="gbMResult" Header="查询结果" HorizontalAlignment="Left" Height="388" Margin="10,102,0,0" VerticalAlignment="Top" Width="879"/>
+                                <Button x:Name="btnMExport" Content="导出" HorizontalAlignment="Left" Margin="813,495,0,0" VerticalAlignment="Top" Width="76"/>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="顾客信息查询" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="59">
+                            <Grid Background="#FFE5E5E5">
+                                <Label x:Name="lbCName" Content="顾客姓名" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                                <TextBox x:Name="tbCName1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+                                <Button x:Name="btnCInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
+                                <GroupBox x:Name="gbCResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857"/>
+                                <Button x:Name="btnCExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
