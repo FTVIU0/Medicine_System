@@ -31,9 +31,32 @@ namespace Medicine_System
         {
 
             Salesperson salesperson = new Salesperson();
-            Application.Current.MainWindow = salesperson;//设置应用程序的主窗口
-            this.Close();//关闭登录窗口
-            salesperson.Show();//打开Salesperson窗口
+            Purchase purchase = new Purchase();
+            Manage manage = new Manage();
+            //Application.Current.MainWindow = salesperson;//设置应用程序的主窗口
+            
+            switch (cbRole.SelectedIndex)
+            {
+                case 1://销售员
+                    Application.Current.MainWindow = salesperson;//设置应用程序的主窗口
+                    this.Close();//关闭登录窗口
+                    salesperson.Show();//打开Salesperson窗口
+                    //Close();
+                    break;
+                case 2://采购员
+                    Application.Current.MainWindow = purchase;//设置应用程序的主窗口
+                    this.Close();//关闭登录窗口
+                    purchase.Show();//打开Purchase窗口
+                    break;
+                case 3://管理者
+                    Application.Current.MainWindow = manage;//设置应用程序的主窗口
+                    this.Close();//关闭登录窗口
+                    manage.Show();//打开Manage窗口
+                    break;
+                default:
+                    MessageBox.Show("请选择角色", "提示");
+                    break;
+            }
         }
 
         //取消 按钮点击事件处理
