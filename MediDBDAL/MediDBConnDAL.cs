@@ -17,7 +17,19 @@ namespace MediDBDAL
             sqlCn = new SqlConnection();
             sqlCn.ConnectionString = connectionString;
         }
-        
+
+        //打开数据库
+        public void Opening()
+        {
+            sqlCn.Open();
+        }
+
+        //关闭数据库
+        public void Closing()
+        {
+            sqlCn.Close();
+        }
+
         //增加插入逻辑
         public void Insert(string sql)
         {
