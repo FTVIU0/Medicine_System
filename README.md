@@ -3,7 +3,8 @@
 
 涉及工具及技术：WPF、SQL Server 2012、Microsoft Visual Studio 2015
 #省市三联动关键代码
-    public partial class Salesperson : Window
+```
+public partial class Salesperson : Window
     {
         string cnStr = @"Data Source = localhost;Integrated Security = SSPI; Initial Catalog = MediDB";
         public Salesperson()
@@ -35,7 +36,6 @@
         }
 
         //Salesperson窗口Load事件
-        //市联动
         private void Salesperson_Load(object sender, RoutedEventArgs e)
         {
             //初始化年份、月份
@@ -72,7 +72,7 @@
         }
 
         //cbProvince的SelectionChanged事件
-        //县区联动
+        //市联动
         private void cbProvince_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //获取选中的省份对象
@@ -104,6 +104,7 @@
         }
 
         //cbCity的SelectionChanged事件
+        //县区联动
         private void cbCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //清空cbCity.Items
@@ -126,3 +127,4 @@
             }
         }
     }
+```
