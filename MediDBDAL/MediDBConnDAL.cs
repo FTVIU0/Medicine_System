@@ -11,6 +11,7 @@ namespace MediDBDAL
     public class MediDBConnDAL
     {
         private SqlConnection sqlCn = null;//被所有方法调用
+        
         //连接数据库
         public void ConnectionSql(string connectionString)
         {

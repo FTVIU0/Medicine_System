@@ -9,7 +9,7 @@
     <Grid Height="592" VerticalAlignment="Top" Margin="0,0,2,0">
         <TabControl x:Name="tabControl" Margin="10">
             <TabItem x:Name="tabClient" Header="顾客信息录入">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5" Loaded="Salesperson_Load">
                     <Label x:Name="lbClientName" Content="姓名" HorizontalAlignment="Left" Margin="54,54,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.488,-1.62"/>
                     <TextBox x:Name="tbCName" HorizontalAlignment="Left" Height="23" Margin="117,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                     <Border x:Name="borClientSex" Margin="365,60,425,0" Height="19" VerticalAlignment="Top">
@@ -21,8 +21,8 @@
                     <Label x:Name="lbClientAge" Content="年龄" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top"/>
                     <Border Margin="117,106,479,410">
                         <Grid>
-                            <ComboBox x:Name="cbYear" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90">
-                                <ComboBoxItem Content="ComboBoxItem" HorizontalAlignment="Left" Width="118"/>
+                            <ComboBox x:Name="cbYear" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90" IsSynchronizedWithCurrentItem="False">
+                                <ComboBoxItem/>
                             </ComboBox>
                             <ComboBox x:Name="cbMonth" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90"/>
                             <Label x:Name="lbYear" Content="年" HorizontalAlignment="Left" Margin="90,4,0,0" VerticalAlignment="Top"/>
@@ -30,10 +30,10 @@
                         </Grid>
                     </Border>
                     <Label x:Name="lbClientAddress" Content="住址" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
-                    <Border Margin="117,156,347,360">
+                    <Border Margin="117,156,407,360">
                         <Grid>
-                            <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90"/>
-                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbProvince_SelectionChanged"/>
+                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbCity_SelectionChanged"/>
                             <ComboBox x:Name="cbCounty" HorizontalAlignment="Left" Margin="239,4,0,0" VerticalAlignment="Top" Width="90"/>
                             <Label x:Name="lbProvince" Content="省" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top"/>
                             <Label x:Name="lbCity" Content="市" HorizontalAlignment="Left" Margin="212,4,0,0" VerticalAlignment="Top"/>
