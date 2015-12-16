@@ -18,8 +18,8 @@
                             <RadioButton x:Name="rbWomen" Content="女" HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <Label x:Name="lbClientAge" Content="年龄" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top"/>
-                    <Border Margin="117,106,479,410">
+                    <Label x:Name="lbClientAge" Content="年龄" HorizontalAlignment="Left" Margin="54,101,0,0" VerticalAlignment="Top"/>
+                    <Border Margin="117,97,479,419">
                         <Grid>
                             <ComboBox x:Name="cbYear" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90" IsSynchronizedWithCurrentItem="False">
                                 <ComboBoxItem/>
@@ -29,8 +29,8 @@
                             <Label x:Name="lbMonth" Content="月" HorizontalAlignment="Left" Margin="212,0,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <Label x:Name="lbClientAddress" Content="住址" HorizontalAlignment="Left" Margin="54,160,0,0" VerticalAlignment="Top"/>
-                    <Border Margin="117,156,407,360">
+                    <Label x:Name="lbClientAddress" Content="住址" HorizontalAlignment="Left" Margin="54,135,0,0" VerticalAlignment="Top"/>
+                    <Border Margin="117,131,407,385">
                         <Grid>
                             <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbProvince_SelectionChanged"/>
                             <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbCity_SelectionChanged"/>
@@ -40,22 +40,24 @@
                             <Label x:Name="lbCounty" Content="县" HorizontalAlignment="Left" Margin="334,4,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="lbClientPhoneNum" Content="联系方式" HorizontalAlignment="Left" Margin="54,262,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbPhoneNum" HorizontalAlignment="Left" Height="22" Margin="117,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Border Margin="365,513,166,0" Height="22" VerticalAlignment="Top">
+                    <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbClientPhoneNum" Content="联系方式" HorizontalAlignment="Left" Margin="54,206,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbPhoneNum" HorizontalAlignment="Left" Height="22" Margin="117,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Border Margin="521,513,10,0" Height="22" VerticalAlignment="Top">
                         <Grid>
                             <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
                             <Button x:Name="btnRevise" Content="修改" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="75"/>
                             <Button x:Name="btnCancel" Content="撤销" HorizontalAlignment="Left" Margin="254,0,0,0" VerticalAlignment="Top" Width="75"/>
                         </Grid>
                     </Border>
-                    <Label x:Name="lbMediNum" Content="药品编号" HorizontalAlignment="Left" Margin="54,328,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbMediNum" HorizontalAlignment="Left" Height="23" Margin="117,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="lbClientSymptom" Content="症状" HorizontalAlignment="Left" Margin="54,385,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbSymptom" HorizontalAlignment="Left" Height="23" Margin="117,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <Label x:Name="lbClientRemark" Content="备注" HorizontalAlignment="Left" Margin="54,430,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbRemark" HorizontalAlignment="Left" Height="23" Margin="117,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbMediNum" Content="药品编号" HorizontalAlignment="Left" Margin="54,247,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbMediNum" HorizontalAlignment="Left" Height="23" Margin="117,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbClientSymptom" Content="症状" HorizontalAlignment="Left" Margin="54,286,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbSymptom" HorizontalAlignment="Left" Height="23" Margin="117,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <Label x:Name="lbClientRemark" Content="备注" HorizontalAlignment="Left" Margin="54,332,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbRemark" HorizontalAlignment="Left" Height="24" Margin="117,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
+                    <GroupBox x:Name="gbResult" Header="顾客信息" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Height="132" Width="883"/>
+                    <Button x:Name="btnAdd" Content="添加" HorizontalAlignment="Left" Margin="773,343,0,0" VerticalAlignment="Top" Width="120" Click="btnAdd_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMedi" Header="查询">

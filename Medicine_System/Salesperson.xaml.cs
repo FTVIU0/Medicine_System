@@ -77,12 +77,15 @@ namespace Medicine_System
         }
 
         //cbProvince的SelectionChanged事件
+        //市联动
         private void cbProvince_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //获取选中的省份对象
             Province province = (Province)cbProvince.SelectedItem;
             //清空cbCity.Items
             cbCity.Items.Clear();
+
+            //cbCounty.Items.Clear();
 
             using (SqlConnection conn = new SqlConnection(cnStr))//连接数据库
             {
@@ -108,6 +111,7 @@ namespace Medicine_System
         }
 
         //cbCity的SelectionChanged事件
+        //县区联动
         private void cbCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //清空cbCity.Items
@@ -128,6 +132,11 @@ namespace Medicine_System
                     cbCounty.Items.Add(dt.Rows[i][0]);
                 }
             }
+        }
+        //点击”添加“按钮事件
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
