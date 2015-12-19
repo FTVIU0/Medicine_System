@@ -83,6 +83,10 @@ namespace MediDBDAL
             return dataSet;
         }
 
+        public void Insert(StringBuilder sql)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }

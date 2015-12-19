@@ -3,6 +3,10 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using MediDBDAL;
+using System.Text;
 
 namespace Medicine_System
 {
@@ -77,7 +81,8 @@ namespace Medicine_System
         }
 
         //cbProvince的SelectionChanged事件
-        //市联动
+        //省市联动
+        //问题：存在事件触发冲突问题
         private void cbProvince_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //获取选中的省份对象
@@ -133,10 +138,136 @@ namespace Medicine_System
                 }
             }
         }
+        //顾客信息类
+        public class Client
+        {
+            public string cno { get; set; }//顾客编号
+            public string cname { get; set; }//姓名
+            public string csex { get; set; }//性别
+            public int cage { get; set; }//年龄
+            public string caddress { get; set; }//住址
+            public string cphone { get; set; }//电话
+            public string csymptom { get; set; }//症状
+            public string mno { get; set; }//已购药品
+            public string ano { get; set; }//经办人
+            public string cremark { get; set; }//备注
+            public DateTime cdate { get; set; }//录入日期
+            
+        }
+        //初始化Client类
+        private Client InitClient()
+        {
+            Client client = new Client();
+            client.cno = tbNum.Text;//顾客编号
+            client.cname = tbCName.Text;//姓名
+            if ((bool)rbMan.IsChecked)//性别
+            {
+                client.csex = rbMan.Content.ToString();
+            }
+            else if ((bool)rbWomen.IsChecked)
+            {
+                client.csex = rbWomen.Content.ToString();
+            }
+            else
+            {
+                MessageBox.Show("请选择性别");
+            }
+            DateTime now = DateTime.Now;//获取系统时间 
+            
+            client.cage = now.Year - int.Parse(cbYear.SelectedItem.ToString());//年龄
+            client.caddress = cbProvince.SelectedItem.ToString()+
+                cbCity.SelectedItem.ToString()+
+                cbCounty.SelectedItem.ToString() +
+                tbAddress.Text;//住址
+            client.cphone = tbPhoneNum.Text;//电话
+            client.csymptom = tbSymptom.Text;//症状
+            client.mno = tbMediNum.Text;//药品编号
+            client.ano = tbNum.Text;//经办人编号
+            client.cremark = tbRemark.Text;//备注
+            client.cdate = DateTime.UtcNow;
+            return client;
+        }
         //点击”添加“按钮事件
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (tbNum.Text == "")
+            {
+                MessageBox.Show("请输入顾客编号！", "温馨提示");
+            }
+            else
+            {
+                Client client = InitClient();
+                //动态数据集合
+                //ObservableCollection<Client> clientList = new ObservableCollection<Client>();
+                //clientList.Add(client);
+                //dataGridClient.ItemsSource = clientList;
+                //添加数据到顾客信息窗口（DataGrid）
+                //将对象放到List<>,在用DataGrid把数据显示出来
+                List<Client> clientL = new List<Client>();
+                clientL.Add(client);
+                dataGridClient.ItemsSource = clientL;
+            }
+            
+        }
+        //保存按钮点击事件处理
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            //连接数据库
+            string cnStr = @"Data Source = localhost;Integrated Security = SSPI; Initial Catalog = MediDB";
+            SqlConnection con = new SqlConnection(cnStr);
+            //打开数据库
+            con.Open();
+            //插入命令
+            StringBuilder sql = new StringBuilder();
+                sql.Append("Insert into Client");
+                sql.Append("(cno, cname, csex, cage, caddress, cphone, csymptom, mno, ano, cdata, cremark)");
+                sql.Append("values");
+                sql.Append("(@cno, @cname, @csex, @cage, @caddress, @cphone, @csymptom, @mno, @ano, @cdata, @cremark)");
+            SqlCommand mycom = new SqlCommand(sql.ToString(), con);
+            //添加参数
+            mycom.Parameters.Add(new SqlParameter("@cno", SqlDbType.NChar, 10));
+            mycom.Parameters.Add(new SqlParameter("@cname", SqlDbType.NVarChar, 8));
+            mycom.Parameters.Add(new SqlParameter("@csex", SqlDbType.NVarChar, 1));
+            mycom.Parameters.Add(new SqlParameter("@cage", SqlDbType.Int, 3));
+            mycom.Parameters.Add(new SqlParameter("@caddress", SqlDbType.NVarChar, 50));
+            mycom.Parameters.Add(new SqlParameter("@cphone", SqlDbType.NVarChar, 20));
+            mycom.Parameters.Add(new SqlParameter("@csymptom", SqlDbType.VarChar, 50));
+            mycom.Parameters.Add(new SqlParameter("@mno", SqlDbType.Char, 12));
+            mycom.Parameters.Add(new SqlParameter("@ano", SqlDbType.Char, 12));
+            mycom.Parameters.Add(new SqlParameter("@cdata", SqlDbType.DateTime));
+            mycom.Parameters.Add(new SqlParameter("@cremark", SqlDbType.NVarChar, 50));
 
+            //给参数赋值
+            mycom.Parameters["@cno"].Value = tbNum.Text;
+            mycom.Parameters["@cname"].Value = tbCName.Text;
+            if ((bool)rbMan.IsChecked)//性别
+            {
+                mycom.Parameters["@csex"].Value = rbMan.Content.ToString();
+            }
+            else
+            {
+                mycom.Parameters["@csex"].Value = rbWomen.Content.ToString();
+            }
+            DateTime now = DateTime.Now;//获取系统时间 
+            mycom.Parameters["@cage"].Value = now.Year - int.Parse(cbYear.SelectedItem.ToString());
+            mycom.Parameters["@caddress"].Value = cbProvince.SelectedItem.ToString() +
+                cbCity.SelectedItem.ToString() +
+                cbCounty.SelectedItem.ToString() +
+                tbAddress.Text;
+            mycom.Parameters["@cphone"].Value = tbPhoneNum.Text;
+            mycom.Parameters["@csymptom"].Value = tbSymptom.Text;
+            mycom.Parameters["@mno"].Value = tbMediNum.Text;
+            mycom.Parameters["@ano"].Value = tbNum.Text;
+            mycom.Parameters["@cdata"].Value = DateTime.UtcNow;
+            mycom.Parameters["@cremark"].Value = tbRemark.Text;
+            //执行添加语句 
+            int i = mycom.ExecuteNonQuery();
+            if (i>=1)
+            {
+                MessageBox.Show("保存成功");
+            }
+            //关闭数据库
+            con.Close();
         }
     }
 }

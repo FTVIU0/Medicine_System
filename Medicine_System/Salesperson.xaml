@@ -15,7 +15,7 @@
                     <Border x:Name="borClientSex" Margin="365,60,425,0" Height="19" VerticalAlignment="Top">
                         <Grid>
                             <RadioButton x:Name="rbMan" Content="男" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <RadioButton x:Name="rbWomen" Content="女" HorizontalAlignment="Left" Margin="73,0,0,0" VerticalAlignment="Top"/>
+                            <RadioButton x:Name="rbWomen" Content="女" HorizontalAlignment="Right" Margin="0,0,9,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
                     <Label x:Name="lbClientAge" Content="年龄" HorizontalAlignment="Left" Margin="54,101,0,0" VerticalAlignment="Top"/>
@@ -45,7 +45,7 @@
                     <TextBox x:Name="tbPhoneNum" HorizontalAlignment="Left" Height="22" Margin="117,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                     <Border Margin="521,513,10,0" Height="22" VerticalAlignment="Top">
                         <Grid>
-                            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
                             <Button x:Name="btnRevise" Content="修改" HorizontalAlignment="Left" Margin="130,0,0,0" VerticalAlignment="Top" Width="75"/>
                             <Button x:Name="btnCancel" Content="撤销" HorizontalAlignment="Left" Margin="254,0,0,0" VerticalAlignment="Top" Width="75"/>
                         </Grid>
@@ -56,8 +56,14 @@
                     <TextBox x:Name="tbSymptom" HorizontalAlignment="Left" Height="23" Margin="117,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
                     <Label x:Name="lbClientRemark" Content="备注" HorizontalAlignment="Left" Margin="54,332,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbRemark" HorizontalAlignment="Left" Height="24" Margin="117,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-                    <GroupBox x:Name="gbResult" Header="顾客信息" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Height="132" Width="883"/>
-                    <Button x:Name="btnAdd" Content="添加" HorizontalAlignment="Left" Margin="773,343,0,0" VerticalAlignment="Top" Width="120" Click="btnAdd_Click"/>
+                    <GroupBox x:Name="gbResult" Header="顾客信息" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Height="132" Width="883">
+                        <DataGrid x:Name="dataGridClient" HorizontalAlignment="Left" Margin="0,0,-2,0" VerticalAlignment="Top" Height="110" Width="873"/>
+                    </GroupBox>
+                    <Button x:Name="btnAdd" Content="添加/ 更新" HorizontalAlignment="Left" Margin="773,343,0,0" VerticalAlignment="Top" Width="120" Click="btnAdd_Click" IsCancel="True"/>
+                    <Label x:Name="lbNum" Content="顾客编号" HorizontalAlignment="Left" Margin="54,24,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbNum" HorizontalAlignment="Left" Height="23" Margin="117,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="lbAgency" Content="经办人" HorizontalAlignment="Left" Margin="283,22,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbAgency" HorizontalAlignment="Left" Height="23" Margin="328,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMedi" Header="查询">
