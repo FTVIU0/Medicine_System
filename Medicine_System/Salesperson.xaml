@@ -32,12 +32,16 @@
                     <Label x:Name="lbClientAddress" Content="住址" HorizontalAlignment="Left" Margin="54,135,0,0" VerticalAlignment="Top"/>
                     <Border Margin="117,131,407,385">
                         <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="182*"/>
+                                <ColumnDefinition Width="197*"/>
+                            </Grid.ColumnDefinitions>
                             <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbProvince_SelectionChanged"/>
-                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbCity_SelectionChanged"/>
-                            <ComboBox x:Name="cbCounty" HorizontalAlignment="Left" Margin="239,4,0,0" VerticalAlignment="Top" Width="90"/>
+                            <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90" SelectionChanged="cbCity_SelectionChanged" Grid.ColumnSpan="2"/>
+                            <ComboBox x:Name="cbCounty" HorizontalAlignment="Left" Margin="57,4,0,0" VerticalAlignment="Top" Width="90" Grid.Column="1"/>
                             <Label x:Name="lbProvince" Content="省" HorizontalAlignment="Left" Margin="90,0,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="lbCity" Content="市" HorizontalAlignment="Left" Margin="212,4,0,0" VerticalAlignment="Top"/>
-                            <Label x:Name="lbCounty" Content="县" HorizontalAlignment="Left" Margin="334,4,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lbCity" Content="市" HorizontalAlignment="Left" Margin="30,4,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label x:Name="lbCounty" Content="县" HorizontalAlignment="Left" Margin="152,4,0,0" VerticalAlignment="Top" Grid.Column="1"/>
                         </Grid>
                     </Border>
                     <TextBox x:Name="tbAddress" HorizontalAlignment="Left" Height="22" Margin="117,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
@@ -73,17 +77,21 @@
                             <Grid Background="#FFE5E5E5">
                                 <Label x:Name="lbMediNum1" Content="药品编号" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="tbMediNum1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
-                                <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
-                                <GroupBox x:Name="gbMResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857"/>
-                                <Button x:Name="btnMExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
+                                <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74" Click="btnMInquiry_Click"/>
+                                <GroupBox x:Name="gbMResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857">
+                                    <DataGrid x:Name="dataGridMedi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="336" Width="847" Margin="0,0,-2,0"/>
+                                </GroupBox>
+                                <Button x:Name="btnMExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76" Click="btnMExport_Click"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="顾客信息查询">
                             <Grid Background="#FFE5E5E5">
                                 <Label x:Name="lbCName" Content="顾客姓名" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="tbCName1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
-                                <Button x:Name="btnCInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74"/>
-                                <GroupBox x:Name="gbCResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857"/>
+                                <Button x:Name="btnCInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74" Click="btnCInquiry_Click"/>
+                                <GroupBox x:Name="gbCResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857">
+                                    <DataGrid x:Name="dataGridClient1" HorizontalAlignment="Left" Margin="0,0,-2,0" VerticalAlignment="Top" Height="338" Width="847"/>
+                                </GroupBox>
                                 <Button x:Name="btnCExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
                             </Grid>
                         </TabItem>

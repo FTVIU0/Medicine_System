@@ -25,7 +25,7 @@ namespace Medicine_System
     public partial class MainWindow : Window
     {
         //MediDBConnDAL mediConn = new MediDBConnDAL();
-        
+        public static string userName;
         public MainWindow()
         {
             InitializeComponent();
@@ -61,6 +61,7 @@ namespace Medicine_System
                     switch (cbRole.SelectedIndex)
                     {
                         case 1://销售员
+                            userName = txtUserName.Text;
                             Application.Current.MainWindow = salesperson;//设置应用程序的主窗口
                             this.Close();//关闭登录窗口
                             salesperson.Show();//打开Salesperson窗口

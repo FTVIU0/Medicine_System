@@ -19,6 +19,7 @@ namespace Medicine_System
         public Salesperson()
         {
             InitializeComponent();
+            
         }
 
         //省份
@@ -47,6 +48,12 @@ namespace Medicine_System
         //Salesperson窗口Load事件
         private void Salesperson_Load(object sender, RoutedEventArgs e)
         {
+            cbCity.Visibility = Visibility.Hidden;
+            lbCity.Visibility = Visibility.Hidden;
+            cbCounty.Visibility = Visibility.Hidden;
+            lbCounty.Visibility = Visibility.Hidden;
+
+            tbAgency.Text = MainWindow.userName;//从登录窗口传递UserName到经办人编号
             //初始化年份、月份
             for (int i = 2015; i >= 1920; i--)
             {
@@ -85,6 +92,9 @@ namespace Medicine_System
         //问题：存在事件触发冲突问题
         private void cbProvince_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            cbCity.Visibility = Visibility.Visible;
+            lbCity.Visibility = Visibility.Visible;
+
             //获取选中的省份对象
             Province province = (Province)cbProvince.SelectedItem;
             //清空cbCity.Items
@@ -119,6 +129,8 @@ namespace Medicine_System
         //县区联动
         private void cbCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            cbCounty.Visibility = Visibility.Visible;
+            lbCounty.Visibility = Visibility.Visible;
             //清空cbCity.Items
             cbCounty.Items.Clear();
 
@@ -213,7 +225,7 @@ namespace Medicine_System
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             //连接数据库
-            string cnStr = @"Data Source = localhost;Integrated Security = SSPI; Initial Catalog = MediDB";
+            //string cnStr = @"Data Source = localhost;Integrated Security = SSPI; Initial Catalog = MediDB";
             SqlConnection con = new SqlConnection(cnStr);
             //打开数据库
             con.Open();
@@ -268,6 +280,44 @@ namespace Medicine_System
             }
             //关闭数据库
             con.Close();
+        }
+        //查询按钮点击事件
+        private void btnMInquiry_Click(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(cnStr))
+            {
+                conn.Open();//打开数据库
+                //执行SQL语句并将结果保存在DataTable dt
+                string sql = "select * from medicine where mno ='" + tbMediNum1.Text + "'";
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                sda.Fill(dataSet);
+                //填充DataGrid
+                dataGridMedi.ItemsSource = dataSet.Tables[0].DefaultView;
+                conn.Close();
+
+            }
+        }
+
+        private void btnCInquiry_Click(object sender, RoutedEventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(cnStr))
+            {
+                conn.Open();//打开数据库
+                //执行SQL语句并将结果保存在DataTable dt
+                string sql = "select * from client where cno ='" + tbCName1.Text + "'";
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                sda.Fill(dataSet);
+                //填充DataGrid
+                dataGridClient1.ItemsSource = dataSet.Tables[0].DefaultView;
+
+            }
+        }
+        //导出按钮点击事件
+        private void btnMExport_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
