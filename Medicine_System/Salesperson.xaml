@@ -68,6 +68,7 @@
                     <TextBox x:Name="tbNum" HorizontalAlignment="Left" Height="23" Margin="117,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <Label x:Name="lbAgency" Content="经办人" HorizontalAlignment="Left" Margin="283,22,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbAgency" HorizontalAlignment="Left" Height="23" Margin="328,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button x:Name="btnExit" Content="退出" HorizontalAlignment="Left" Margin="10,516,0,0" VerticalAlignment="Top" Width="74" Click="btnExit_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMedi" Header="查询">
@@ -82,6 +83,7 @@
                                     <DataGrid x:Name="dataGridMedi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="336" Width="847" Margin="0,0,-2,0"/>
                                 </GroupBox>
                                 <Button x:Name="btnMExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76" Click="btnMExport_Click"/>
+                                <Button x:Name="btnExit_Copy" Content="退出" HorizontalAlignment="Left" Margin="10,468,0,0" VerticalAlignment="Top" Width="74" Click="btnExit_Click"/>
                             </Grid>
                         </TabItem>
                         <TabItem Header="顾客信息查询">
@@ -92,7 +94,7 @@
                                 <GroupBox x:Name="gbCResult" Header="查询结果" HorizontalAlignment="Left" Height="361" Margin="10,102,0,0" VerticalAlignment="Top" Width="857">
                                     <DataGrid x:Name="dataGridClient1" HorizontalAlignment="Left" Margin="0,0,-2,0" VerticalAlignment="Top" Height="338" Width="847"/>
                                 </GroupBox>
-                                <Button x:Name="btnCExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76"/>
+                                <Button x:Name="btnCExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76" Click="btnCExport_Click"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

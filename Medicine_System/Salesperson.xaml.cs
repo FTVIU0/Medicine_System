@@ -7,13 +7,15 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using MediDBDAL;
 using System.Text;
+using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Excel;
 
 namespace Medicine_System
 {
     /// <summary>
     /// Salesperson.xaml 的交互逻辑
     /// </summary>
-    public partial class Salesperson : Window
+    public partial class Salesperson : System.Windows.Window
     {
         string cnStr = @"Data Source = localhost;Integrated Security = SSPI; Initial Catalog = MediDB";
         public Salesperson()
@@ -139,7 +141,7 @@ namespace Medicine_System
                 conn.Open();//打开数据库
                 //执行SQL语句并将结果保存在DataTable dt
                 string sql = "select DistrictName from District, City where District.CityID = City.CityID And CityName ='" + cbCity.SelectedItem.ToString() + "'";
-                DataTable dt = new DataTable();
+                System.Data.DataTable dt = new System.Data.DataTable();
                 SqlCommand com = new SqlCommand(sql, conn);
                 SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
                 sda.Fill(dt);
@@ -301,23 +303,124 @@ namespace Medicine_System
 
         private void btnCInquiry_Click(object sender, RoutedEventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(cnStr))
+            if (tbCName1.Text !="")
             {
-                conn.Open();//打开数据库
-                //执行SQL语句并将结果保存在DataTable dt
-                string sql = "select * from client where cno ='" + tbCName1.Text + "'";
-                DataSet dataSet = new DataSet();
-                SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
-                sda.Fill(dataSet);
-                //填充DataGrid
-                dataGridClient1.ItemsSource = dataSet.Tables[0].DefaultView;
+                using (SqlConnection conn = new SqlConnection(cnStr))
+                {
+                    conn.Open();//打开数据库
+                                //执行SQL语句并将结果保存在DataTable dt
+                    string sql = "select * from client where cno ='" + tbCName1.Text + "'";
+                    DataSet dataSet = new DataSet();
+                    SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                    sda.Fill(dataSet);
+                    //填充DataGrid
+                    dataGridClient1.ItemsSource = dataSet.Tables[0].DefaultView;
 
+                }
             }
+            else
+            {
+                MessageBox.Show("请输入");
+            }
+            
         }
         //导出按钮点击事件
         private void btnMExport_Click(object sender, RoutedEventArgs e)
         {
+            SqlConnection conn = new SqlConnection(cnStr);
+            conn.Open();//打开数据库
+            //执行SQL语句并将结果保存在DataTable dt
+            string sql = "select * from medicine where mno ='" + tbMediNum1.Text + "'";
+            System.Data.DataTable dt = new System.Data.DataTable();
+            SqlCommand com = new SqlCommand(sql, conn);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+            sda.Fill(dt);
+            //创建Excel  
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            Workbook excelWB = excelApp.Workbooks.Add(System.Type.Missing);    //创建工作簿（WorkBook：即Excel文件主体本身）  
+            Worksheet excelWS = (Worksheet)excelWB.Worksheets[1];   //创建工作表（即Excel里的子表sheet） 1表示在子表sheet1里进行数据导出 
 
+            //将数据导入到工作表的单元格  
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    excelWS.Cells[i + 1, j + 1] = dt.Rows[i][j].ToString();   //Excel单元格第一个从索引1开始  
+                }
+            }
+
+            excelWB.SaveAs("F:\\sanjiawan.xlsx");  //将其进行保存到指定的路径  
+            excelWB.Close();
+            excelApp.Quit();  //
+            KillAllExcel(excelApp); //释放可能还没释放的进程  
+        }
+
+        //释放Excel进程
+        public bool KillAllExcel(Microsoft.Office.Interop.Excel.Application excelApp)
+        {
+            try
+            {
+                if (excelApp != null)
+                {
+                    excelApp.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                    //释放COM组件，其实就是将其引用计数减1     
+                    //System.Diagnostics.Process theProc;     
+                    foreach (System.Diagnostics.Process theProc in System.Diagnostics.Process.GetProcessesByName("EXCEL"))
+                    {
+                        //先关闭图形窗口。如果关闭失败.有的时候在状态里看不到图形窗口的excel了，     
+                        //但是在进程里仍然有EXCEL.EXE的进程存在，那么就需要释放它     
+                        if (theProc.CloseMainWindow() == false)
+                        {
+                            theProc.Kill();
+                        }
+                    }
+                    excelApp = null;
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void btnCExport_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(cnStr);
+            conn.Open();//打开数据库
+            //执行SQL语句并将结果保存在DataTable dt
+            string sql = "select * from client where cno ='" + tbCName1.Text + "'";
+            System.Data.DataTable dt = new System.Data.DataTable();
+            SqlCommand com = new SqlCommand(sql, conn);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+            sda.Fill(dt);
+            //创建Excel  
+            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            Workbook excelWB = excelApp.Workbooks.Add(System.Type.Missing);    //创建工作簿（WorkBook：即Excel文件主体本身）  
+            Worksheet excelWS = (Worksheet)excelWB.Worksheets[1];   //创建工作表（即Excel里的子表sheet） 1表示在子表sheet1里进行数据导出 
+
+            //将数据导入到工作表的单元格  
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    excelWS.Cells[i + 1, j + 1] = dt.Rows[i][j].ToString();   //Excel单元格第一个从索引1开始  
+                }
+            }
+
+            excelWB.SaveAs("F:\\sanjiawan1.xlsx");  //将其进行保存到指定的路径  
+            excelWB.Close();
+            excelApp.Quit();  //
+            KillAllExcel(excelApp); //释放可能还没释放的进程
+        }
+        //退出按钮点击事件
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.Show();
         }
     }
 }

@@ -19,33 +19,39 @@
                     <Label x:Name="lbEffect" Content="功效" HorizontalAlignment="Left" Margin="71,225,0,0" VerticalAlignment="Top"/>
                     <Border Margin="144,190,650,367">
                         <Grid>
-                            <RadioButton x:Name="radioButton" Content="内服" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <RadioButton x:Name="radioButton1" Content="外用" HorizontalAlignment="Left" Margin="88,0,0,0" VerticalAlignment="Top"/>
+                            <RadioButton x:Name="rbIn" Content="内服" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <RadioButton x:Name="rbOut" Content="外用" HorizontalAlignment="Left" Margin="88,0,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
-                    <GroupBox x:Name="gbMediMes" Header="药品信息" HorizontalAlignment="Left" Height="258" Margin="71,279,0,0" VerticalAlignment="Top" Width="844"/>
+                    <GroupBox x:Name="gbMediMes" Header="药品信息" HorizontalAlignment="Left" Height="258" Margin="71,279,0,0" VerticalAlignment="Top" Width="844">
+                        <DataGrid x:Name="dataGridMedi" HorizontalAlignment="Left" VerticalAlignment="Top" Height="235" Width="834" Margin="0,0,-2,0"/>
+                    </GroupBox>
                     <Border Margin="611,542,10,10">
                         <Grid>
-                            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="btnSave" Content="保存" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
                             <Button x:Name="btnRevise" Content="修改" HorizontalAlignment="Left" Margin="114,0,0,0" VerticalAlignment="Top" Width="75"/>
                             <Button x:Name="btnCancel" Content="撤销" HorizontalAlignment="Left" Margin="230,0,0,0" VerticalAlignment="Top" Width="74"/>
                         </Grid>
                     </Border>
                     <Border Margin="730,255,10,297">
                         <Grid>
-                            <Button x:Name="btnAdd" Content="添加" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
-                            <Button x:Name="btnImport" Content="导入" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Top" Width="76"/>
+                            <Button x:Name="btnAdd" Content="添加" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
+                            <Button x:Name="btnImport" Content="导入" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Top" Width="76" Click="btnImport_Click"/>
                         </Grid>
                     </Border>
+                    <Button x:Name="btnExit_Copy" Content="退出" HorizontalAlignment="Left" Margin="31,542,0,0" VerticalAlignment="Top" Width="74" Click="btnExit_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="查询">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="lbMNum1" Content="药品编号" HorizontalAlignment="Left" Margin="88,60,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbMNum1" HorizontalAlignment="Left" Height="23" Margin="146,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="214"/>
-                    <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="704,63,0,0" VerticalAlignment="Top" Width="74"/>
-                    <GroupBox x:Name="gbMResult" Header="查询结果" HorizontalAlignment="Left" Height="420" Margin="10,117,0,0" VerticalAlignment="Top" Width="905"/>
-                    <Button x:Name="btnExport" Content="导出" HorizontalAlignment="Left" Margin="840,542,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="704,63,0,0" VerticalAlignment="Top" Width="74" Click="btnMInquiry_Click"/>
+                    <GroupBox x:Name="gbMResult" Header="查询结果" HorizontalAlignment="Left" Height="420" Margin="10,117,0,0" VerticalAlignment="Top" Width="905">
+                        <DataGrid x:Name="dataGridMediI" HorizontalAlignment="Left" VerticalAlignment="Top" Height="398" Width="895" Margin="0,0,-2,0"/>
+                    </GroupBox>
+                    <Button x:Name="btnExport" Content="导出" HorizontalAlignment="Left" Margin="840,542,0,0" VerticalAlignment="Top" Width="75" Click="btnMExport_Click"/>
+                    <Button x:Name="btnExit" Content="退出" HorizontalAlignment="Left" Margin="10,542,0,0" VerticalAlignment="Top" Width="74" Click="btnExit_Click"/>
                 </Grid>
             </TabItem>
         </TabControl>

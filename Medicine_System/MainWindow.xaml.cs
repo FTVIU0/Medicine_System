@@ -65,7 +65,6 @@ namespace Medicine_System
                             Application.Current.MainWindow = salesperson;//设置应用程序的主窗口
                             this.Close();//关闭登录窗口
                             salesperson.Show();//打开Salesperson窗口
-                                               //Close();
                             break;
                         case 2://采购员
                             Application.Current.MainWindow = purchase;//设置应用程序的主窗口
