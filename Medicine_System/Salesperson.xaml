@@ -63,19 +63,20 @@
                     <GroupBox x:Name="gbResult" Header="顾客信息" HorizontalAlignment="Left" Margin="10,376,0,0" VerticalAlignment="Top" Height="132" Width="883">
                         <DataGrid x:Name="dataGridClient" HorizontalAlignment="Left" Margin="0,0,-2,0" VerticalAlignment="Top" Height="110" Width="873"/>
                     </GroupBox>
-                    <Button x:Name="btnAdd" Content="添加/ 更新" HorizontalAlignment="Left" Margin="773,343,0,0" VerticalAlignment="Top" Width="120" Click="btnAdd_Click" IsCancel="True"/>
+                    <Button x:Name="btnAdd" Content="添加/ 更新" HorizontalAlignment="Left" Margin="773,332,0,0" VerticalAlignment="Top" Width="120" Click="btnAdd_Click" IsCancel="True"/>
                     <Label x:Name="lbNum" Content="顾客编号" HorizontalAlignment="Left" Margin="54,24,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbNum" HorizontalAlignment="Left" Height="23" Margin="117,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <Label x:Name="lbAgency" Content="经办人" HorizontalAlignment="Left" Margin="283,22,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="tbAgency" HorizontalAlignment="Left" Height="23" Margin="328,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <Button x:Name="btnExit" Content="退出" HorizontalAlignment="Left" Margin="10,516,0,0" VerticalAlignment="Top" Width="74" Click="btnExit_Click"/>
+                    <Button x:Name="btnClear" Content="清空输入" HorizontalAlignment="Left" Margin="773,362,0,0" VerticalAlignment="Top" Width="120" Click="btnClear_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabMedi" Header="查询">
                 <Grid Background="#FFE5E5E5" Margin="0,8,0,-7">
                     <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="524" Margin="10,10,0,0" VerticalAlignment="Top" Width="883">
                         <TabItem Header="药品信息查询">
-                            <Grid Background="#FFE5E5E5">
+                            <Grid Background="#FFE5E5E5" Margin="0,0,0,-6">
                                 <Label x:Name="lbMediNum1" Content="药品编号" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
                                 <TextBox x:Name="tbMediNum1" HorizontalAlignment="Left" Height="23" Margin="73,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
                                 <Button x:Name="btnMInquiry" Content="查询" HorizontalAlignment="Left" Margin="793,56,0,0" VerticalAlignment="Top" Width="74" Click="btnMInquiry_Click"/>
@@ -95,6 +96,7 @@
                                     <DataGrid x:Name="dataGridClient1" HorizontalAlignment="Left" Margin="0,0,-2,0" VerticalAlignment="Top" Height="338" Width="847"/>
                                 </GroupBox>
                                 <Button x:Name="btnCExport" Content="导出" HorizontalAlignment="Left" Margin="791,468,0,0" VerticalAlignment="Top" Width="76" Click="btnCExport_Click"/>
+                                <Button x:Name="btnExit_Copy1" Content="退出" HorizontalAlignment="Left" Margin="10,473,0,0" VerticalAlignment="Top" Width="74" Click="btnExit_Click"/>
                             </Grid>
                         </TabItem>
                     </TabControl>

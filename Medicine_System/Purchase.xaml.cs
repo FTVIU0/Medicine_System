@@ -163,6 +163,7 @@ namespace Medicine_System
             }
 
             excelWB.SaveAs("F:\\CCsanjiawan.xlsx");  //将其进行保存到指定的路径  
+            MessageBox.Show("成功导出文件到F:\\CCsanjiawan.xlsx");
             excelWB.Close();
             excelApp.Quit();  //
             KillAllExcel(excelApp); //释放可能还没释放的进程

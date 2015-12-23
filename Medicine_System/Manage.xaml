@@ -34,7 +34,7 @@
                         </Grid>
                     </Border>
                     <Label x:Name="label" Content="住址" HorizontalAlignment="Left" Margin="66,218,0,0" VerticalAlignment="Top"/>
-                    <Border Margin="129,226,357,316">
+                    <Border Margin="129,218,357,324">
                         <Grid>
                             <ComboBox x:Name="cbProvince" HorizontalAlignment="Left" Margin="0,4,0,0" VerticalAlignment="Top" Width="90"/>
                             <ComboBox x:Name="cbCity" HorizontalAlignment="Left" Margin="117,4,0,0" VerticalAlignment="Top" Width="90"/>

@@ -18,6 +18,7 @@ namespace Medicine_System
     public partial class Salesperson : System.Windows.Window
     {
         string cnStr = @"Data Source = localhost;Integrated Security = SSPI; Initial Catalog = MediDB";
+        bool tf = false;
         public Salesperson()
         {
             InitializeComponent();
@@ -139,7 +140,7 @@ namespace Medicine_System
             using (SqlConnection conn = new SqlConnection(cnStr))
             {
                 conn.Open();//打开数据库
-                //执行SQL语句并将结果保存在DataTable dt
+                            //执行SQL语句并将结果保存在DataTable dt             
                 string sql = "select DistrictName from District, City where District.CityID = City.CityID And CityName ='" + cbCity.SelectedItem.ToString() + "'";
                 System.Data.DataTable dt = new System.Data.DataTable();
                 SqlCommand com = new SqlCommand(sql, conn);
@@ -151,6 +152,7 @@ namespace Medicine_System
                     cbCounty.Items.Add(dt.Rows[i][0]);
                 }
             }
+
         }
         //顾客信息类
         public class Client
@@ -166,7 +168,9 @@ namespace Medicine_System
             public string ano { get; set; }//经办人
             public string cremark { get; set; }//备注
             public DateTime cdate { get; set; }//录入日期
+            public System.Windows.Controls.Button btndelete = new System.Windows.Controls.Button();
             
+
         }
         //初始化Client类
         private Client InitClient()
@@ -300,7 +304,7 @@ namespace Medicine_System
 
             }
         }
-
+      
         private void btnCInquiry_Click(object sender, RoutedEventArgs e)
         {
             if (tbCName1.Text !="")
@@ -349,7 +353,8 @@ namespace Medicine_System
                 }
             }
 
-            excelWB.SaveAs("F:\\sanjiawan.xlsx");  //将其进行保存到指定的路径  
+            excelWB.SaveAs("F:\\sanjiawan.xlsx");  //将其进行保存到指定的路径
+            MessageBox.Show("成功导出文件到F:\\sanjiawan.xlsx");  
             excelWB.Close();
             excelApp.Quit();  //
             KillAllExcel(excelApp); //释放可能还没释放的进程  
@@ -410,7 +415,8 @@ namespace Medicine_System
                 }
             }
 
-            excelWB.SaveAs("F:\\sanjiawan1.xlsx");  //将其进行保存到指定的路径  
+            excelWB.SaveAs("F:\\sanjiawan1.xlsx");  //将其进行保存到指定的路径 
+            MessageBox.Show("成功导出文件到F:\\sanjiawan1.xlsx");
             excelWB.Close();
             excelApp.Quit();  //
             KillAllExcel(excelApp); //释放可能还没释放的进程
@@ -422,5 +428,23 @@ namespace Medicine_System
             this.Close();
             mainWindow.Show();
         }
+
+        //清空输入按钮点击事件
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            //tbNum.Text = "";
+            //tbCName.Text = "";
+            //cbYear.SelectedIndex = -1;
+            //cbMonth.SelectedIndex = -1;
+            //cbProvince.SelectedIndex = -1;
+            //cbCity.SelectedIndex = -1;
+            //cbCounty.SelectedIndex = -1;
+            //tbAddress.Text = "";
+            //tbPhoneNum.Text = "";
+            //tbMediNum.Text = "";
+            //tbSymptom.Text = "";
+            //tbRemark.Text = "";
+        }
+        
     }
 }
